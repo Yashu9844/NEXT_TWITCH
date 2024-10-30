@@ -18,7 +18,7 @@ model User {
   id        String   @id @default(uuid())
   username      String  @unique
   imageUrl   String @db.Text
-  externalId String @unique
+  externalUserId String @unique
  bio   String? @db.Text
 
 createdAt DateTime @default(now())
