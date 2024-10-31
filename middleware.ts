@@ -10,5 +10,6 @@ export const config = {
     '/api/(.*)', // Adjusted to run on all API routes
     // Allow access to the webhook route
     '/api/webhooks(.*)', // This line allows public access to the webhook route
+     '/', // This line allows home page access to the webhook route
   ],
 };

@@ -7,11 +7,11 @@ export default function Home() {
     <div className="flex flex-col gap-y-4">
     <SignedIn>
         <div>Welcome to the protected homepage!</div>
-        <UserButton  afterSwitchSessionUrl="/"/>
+       
       </SignedIn>
-      <SignedOut>
+      {/* <SignedOut>
         <RedirectToSignIn />
-      </SignedOut>
+      </SignedOut> */}
     </div>
     </>
   );
