@@ -11,13 +11,13 @@ interface ContainerProps{
 const Container = ({children} : ContainerProps) => {
 const {collapsed , onExpand , onCollapse} = useSideBar((state)=>state)
 const matches = useMediaQuery("(max-width:1024px)")
-useEffect(()=>{
-    if(matches){
-        onCollapse()
-    }else{
-        onExpand()
+useEffect(() => {
+    if (matches) {
+        onCollapse();
+    } else {
+        onExpand();
     }
-},[matches,onCollapse,onExpand,onCollapse])
+}, [matches, onCollapse, onExpand])
 
 
   return (
