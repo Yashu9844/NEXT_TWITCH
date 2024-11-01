@@ -1,7 +1,7 @@
 "use client"
 import { useSideBar } from "@/store/use-sidebar";
 import { User } from "@prisma/client";
-import UserItem from "./UserItem";
+import UserItem, { UserItemSkeleton } from "./UserItem";
 
 interface RecommendedProps{
     data:User[];
@@ -32,7 +32,7 @@ const showLabel = !collapsed && data.length > 0
      <ul className="space-y-4 pl-6" >
         {!collapsed && data.map((item)=>{
             return (
-               <UserItem key={item.id} username = {item.username} isLive={true} imageUrl = {item.imageUrl}  />
+               <UserItem key={item.id} username = {item.username} isLive={false} imageUrl = {item.imageUrl}  />
             )
         })}
      </ul>
@@ -42,3 +42,15 @@ const showLabel = !collapsed && data.length > 0
 };
 
 export default Recommended;
+
+export const ReccommendedSkeleton = ()=>{
+  return (
+    <ul className="px-2" >
+      {[...Array(3)].map((_,i)=>{
+        return (
+          <UserItemSkeleton key={i} />
+        )
+      })}
+    </ul>
+  )
+}
