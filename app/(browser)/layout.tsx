@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import NavBar from './_components/navbar/NavBar';
-import SideBar from './_components/sidebar/SideBar';
+import SideBar, { SideBarSkeleteon } from './_components/sidebar/SideBar';
 import Container from './_components/Container';
 
 interface BrowserLayoutProps {
@@ -12,7 +12,9 @@ const BrowserLayout: React.FC<BrowserLayoutProps> = ({ children }) => {
     <>
        <NavBar/>
       <div className="flex h-full pt-20">
-        <SideBar/>
+      <Suspense fallback={<SideBarSkeleteon/>} >
+      <SideBar/>
+      </Suspense>
      <Container>
       {children}
      </Container>

@@ -29,8 +29,8 @@ const showLabel = !collapsed && data.length > 0
           </div>
         )
        }
-     <ul className="space-y-4 pl-6" >
-        {!collapsed && data.map((item)=>{
+     <ul className="space-y-4 " >
+        { data.map((item)=>{
             return (
                <UserItem key={item.id} username = {item.username} isLive={false} imageUrl = {item.imageUrl}  />
             )

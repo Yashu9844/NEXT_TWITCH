@@ -18,7 +18,7 @@ export const Logoo = () => {
                     alt="Twitch logo"
                     className=''
                 />
-                <div className="flex flex-col hidden lg:block items-center">
+                <div className=" flex-col hidden lg:flex items-center">
                     <h1 className={`${font.className} text-2xl font-bold text-purple-600`}>
                         Twitch
                     </h1>

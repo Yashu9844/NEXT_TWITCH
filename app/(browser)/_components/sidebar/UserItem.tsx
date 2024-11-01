@@ -22,30 +22,31 @@ const UserItem = ({username,isLive,imageUrl} : UserItemProps) => {
  const href = `/${username}`
 const {collapsed} = useSideBar()
 const isActive = pathname === href
-  return (
-    <Button
-    asChild
-    variant={"ghost"} className={cn("w-full h-12",
-        collapsed ? "justify-center" : "justify-start",
-        
-    )} >
-      <Link href={href}>
-      <div className={cn("flex items-center w-full gap-x-4 ",
-collapsed && "justify-center",
-isActive && "bg-accent"
+return (
+  <Button
+  asChild
+  variant="ghost"
+  className={cn(
+    "w-full h-12",
+    collapsed ? "justify-center" : "justfy-start",
+    isActive && "bg-accent"
+  )}
+>
+  <Link href={href}>
+    <div
+      className={cn(
+        "flex items-center w-full gap-x-4",
+        collapsed && "justify-center"
+      )}
+    >
+      <UserAvatar imageUrl={imageUrl} username={username} isLive={isLive} />
+      {!collapsed && <p className="truncate">{username}</p>}
+      {!collapsed && isLive && <LiveBadge className="ml-auto" />}
+    </div>
+  </Link>
+</Button>
+);
 
-      )}>
-        <UserAvatar username = {username} imageUrl={imageUrl} isLive={isLive} showBadge={false} />
-        {!collapsed && (
-          <p className="truncate" >{username}</p>
-        )}
-       {!collapsed && isLive && (
-        <LiveBadge className="ml-auto" />
-       )}
-
-        </div></Link>
-    </Button>
-  );
 };
 
 export default UserItem;

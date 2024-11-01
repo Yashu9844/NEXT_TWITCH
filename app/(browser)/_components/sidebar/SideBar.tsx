@@ -1,7 +1,7 @@
 
 import { getRecommended } from "@/lib/recommend";
 import Recommended, { ReccommendedSkeleton } from "./Recommended";
-import Toggle from "./Toogle";
+import Toggle, { ToggleSkeleton } from "./Toogle";
 import Wrapper from "./Wrapper";
 
 const SideBar =async () => {
@@ -26,7 +26,7 @@ export const SideBarSkeleteon = ()=>{
     h-full bg-background border-r border-[#2D2E35] z-50
     
     " >
-
+         <ToggleSkeleton/>
       <ReccommendedSkeleton/>
 
     </aside>
