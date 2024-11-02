@@ -118,7 +118,8 @@ export const unFollow = async (id:string)=>{
 where:{
     id:existingFollow.id
 },include:{
-    following:true
+    following:true,
+  
 }
    })
  
