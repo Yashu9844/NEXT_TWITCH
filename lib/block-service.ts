@@ -80,46 +80,43 @@ export const blockUser= async(id:string)=>{
     }
 }
 
-export const unblockUser= async(id:string)=>{
+export const unblockUser = async (id: string) => {
     try {
-
-  const self = await getSelf();
-
- const otherUser = await db.block.findUnique({
-    where:{id},})
-
-    if(!otherUser){
-        throw new Error('User not found')
+      const self = await getSelf();
+  
+      const otherUser = await db.user.findUnique({
+        where: { id },
+      });
+  
+      if (!otherUser) {
+        throw new Error('User not found  nope nope');
+      }
+  
+      const existingUser = await db.block.findUnique({
+        where: {
+          blockedId_blockerId: {
+            blockedId: otherUser.id,
+            blockerId: self.id,
+          },
+        },
+      });
+  
+      if (!existingUser) {
+        throw new Error('Not blocked');
+      }
+  
+      const unBlock = await db.block.delete({
+        where: {
+          id: existingUser.id,
+        },
+        include: {
+          blocked: true,
+        },
+      });
+  
+      return unBlock;
+    } catch (error:any) {
+      console.error("Error in unblockUser:", error);  // Log the original error for debugging
+      throw new Error(`Something went wrong: ${error.message}`);
     }
-
-
-
-    const existingUser = await db.block.findUnique({
-        where:{
-            blockedId_blockerId:{
-                blockedId:otherUser.id,
-                blockerId:self.id
-            }
-        }
-    })
-
-    if(!existingUser){
-        throw new Error('Not blocked')
-    }
-
-    const unBlock = await db.block.delete({
-        where:{
-            id:existingUser.id
-        },include:{
-             blocked:true,
-        }
-    })
-
-    return unBlock;
-
-
-        
-    } catch (error) {
-        throw new Error("Something went wrong")
-    }
-}
+  };

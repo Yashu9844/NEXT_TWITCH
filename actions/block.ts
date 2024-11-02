@@ -22,18 +22,13 @@ export const onBlock = async (id:string)=>{
 }
 
 
-export const onUnBlockUser = async (id:string) => { 
-    try {
-         const unBlockUSer = await unblockUser(id)
-         revalidatePath("/")
-
-         if(unBlockUSer){
-            revalidatePath(`/${unBlockUSer.blocked.username}`)
-         }
-          
-      return unblockUser;
-
-    } catch (error) {
-        throw new Error("Something went wrong")
+export const onUnBlock = async (id: string) => {
+    const unBlockUSer = await unblockUser(id);
+    revalidatePath("/");
+  
+    if (unBlockUSer?.blocked?.username) {
+      revalidatePath(`/${unBlockUSer.blocked.username}`);
     }
-}
+  
+    return unBlockUSer;
+  };
