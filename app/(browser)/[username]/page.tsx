@@ -2,6 +2,7 @@ import { isFollowingUser } from "@/lib/follow-service";
 import { getUserByUsername } from "@/lib/user-service";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import Actions from "./_component/Actions";
 
 interface UserProps{
     params:{
@@ -22,7 +23,7 @@ if(!user){
        username: {user.username}
        user id : {user.id}
        id following:{`${isFollowing}`}
-     
+     <Actions isFollowing={isFollowing} userId = {user.id} />
     </div>
   );
 };

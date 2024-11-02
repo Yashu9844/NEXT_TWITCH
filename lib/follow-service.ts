@@ -81,7 +81,7 @@ return follow;
 
 
   } catch (error) {
-    console.log(error)
+   throw new Error("Something went wrong")
   }
 
 }
