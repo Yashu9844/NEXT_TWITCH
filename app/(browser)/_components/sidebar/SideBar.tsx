@@ -5,7 +5,7 @@ import Toggle, { ToggleSkeleton } from "./Toogle";
 import Wrapper from "./Wrapper";
 
 import { getFollowedUsers } from "@/lib/follow-service";
-import Following from "./Following";
+import Following, { FollowingSkeleton } from "./Following";
 
 const SideBar =async () => {
 
@@ -15,8 +15,9 @@ const follows = await getFollowedUsers()
     <Wrapper>
       <Toggle/>
       <div className="space-y-4 pt-4 lg:pt-0">
+      <Following data = {follows} />
         <Recommended data={recommended} />
-        <Following data = {follows} />
+       
       </div>
     </Wrapper>
   );
@@ -31,6 +32,7 @@ export const SideBarSkeleteon = ()=>{
     
     " >
          <ToggleSkeleton/>
+         <FollowingSkeleton/>
       <ReccommendedSkeleton/>
 
     </aside>
