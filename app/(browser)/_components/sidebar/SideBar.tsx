@@ -4,15 +4,19 @@ import Recommended, { ReccommendedSkeleton } from "./Recommended";
 import Toggle, { ToggleSkeleton } from "./Toogle";
 import Wrapper from "./Wrapper";
 
+import { getFollowedUsers } from "@/lib/follow-service";
+import Following from "./Following";
+
 const SideBar =async () => {
 
 const recommended = await getRecommended()
-
+const follows = await getFollowedUsers()
   return (
     <Wrapper>
       <Toggle/>
       <div className="space-y-4 pt-4 lg:pt-0">
         <Recommended data={recommended} />
+        <Following data = {follows} />
       </div>
     </Wrapper>
   );
