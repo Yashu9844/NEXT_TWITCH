@@ -59,7 +59,7 @@ blocked User @relation(name:"BlockedBy",fields: [blockedId] , references: [id],o
 @@index([blockedId])
 @@index([blockerId])
 
-
+ 
 }
 
  
