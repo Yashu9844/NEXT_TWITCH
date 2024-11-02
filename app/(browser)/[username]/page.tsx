@@ -1,3 +1,8 @@
+import { isFollowingUser } from "@/lib/follow-service";
+import { getUserByUsername } from "@/lib/user-service";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+
 interface UserProps{
     params:{
         username:string;
@@ -5,10 +10,19 @@ interface UserProps{
 }
 
 
-const Page = ({params} : UserProps) => {
+const Page =async ({params} : UserProps) => {
+const user = await getUserByUsername(params.username)
+
+if(!user){
+  notFound()
+}const isFollowing = await isFollowingUser(user.id)
+
   return (
     <div>
-      Page {params.username}
+       username: {user.username}
+       user id : {user.id}
+       id following:{`${isFollowing}`}
+     
     </div>
   );
 };
