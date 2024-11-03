@@ -16,6 +16,7 @@ if(follow){
 return follow
       
  } catch (error) {
-   throw new Error("Internal error")
+   console.error("Error in getFollow:", error); // Logs the specific error details
+   throw new Error("Internal error");
  }
 }

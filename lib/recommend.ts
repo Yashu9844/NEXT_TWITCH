@@ -33,7 +33,19 @@ if(userId){
                     }
                 }
             }
-        }]
+        },
+       {
+        NOT:{
+            blocking:{
+                some:{
+                    blockedId:userId
+                }
+            }
+        }
+       }
+    
+    
+    ]
         },
         orderBy:{
             createdAt:"desc"

@@ -9,8 +9,16 @@ import Following, { FollowingSkeleton } from "./Following";
 
 const SideBar =async () => {
 
-const recommended = await getRecommended()
-const follows = await getFollowedUsers()
+  let recommended:any = [];
+    let follows :any= [];
+
+    try {
+        recommended = await getRecommended();
+        follows = await getFollowedUsers();
+    } catch (error) {
+        console.error("Error in Sidebar:", error);
+        // Optionally, handle this error in the UI
+    }
   return (
     <Wrapper>
       <Toggle/>

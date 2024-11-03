@@ -41,7 +41,7 @@ export const followUSer = async(id:string)=>{
   try {
     
  const self = await getSelf();
-
+console.log(self.id)
  const otherUSer = await db.user.findUnique({
     where:{id:id}
  })
@@ -132,24 +132,33 @@ where:{
 }
 
 
-export const getFollowedUsers = async()=>{
-    try {
-        
+export const getFollowedUsers = async () => {
+  try {
       const self = await getSelf();
 
+      if (!self) {
+          throw new Error("User not authenticated"); // Specific error for unauthenticated users
+      }
+
       const followedUsers = await db.follow.findMany({
-        where:{
-            followerId:self.id
-        },include:{
-            following:true,
-            
-        }
-      })
- 
+          where: {
+              followerId: self.id,
+              following:{
+                blocking:{
+                  none:{
+                    blockedId:self.id
+                  }
+                }
+              }
+          },
+          include: {
+              following: true,
+          },
+      });
 
       return followedUsers;
-
-    } catch (error) {
-        throw new Error("Something went wrong")
-    }
-}
+  } catch (error: any) {
+      console.error("Error in getFollowedUsers:", error);
+      throw new Error(`Something went wrong: ${error.message}`);
+  }
+};
