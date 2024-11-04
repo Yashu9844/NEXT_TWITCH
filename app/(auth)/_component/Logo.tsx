@@ -23,7 +23,7 @@ export const Logoo = () => {
                         Twitch
                     </h1>
                     <p className={`${font.className} text-sm font-light text-gray-500`}>
-                        Baby
+                     Dashbored
                     </p>
                 </div>
             </div>
