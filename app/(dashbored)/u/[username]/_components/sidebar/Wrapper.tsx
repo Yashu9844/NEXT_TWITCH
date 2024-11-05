@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useCreatorSideBar } from "@/store/use-creator-sidebar";
 import Toggle from "./Toggle";
+import Navigation from "./Navigation";
 
 interface WrapperPropsCreator{
     children:React.ReactNode;
@@ -20,6 +21,7 @@ const Wrapper = ({children}:WrapperPropsCreator) => {
              )}>
         
     <Toggle/>
+    <Navigation/>
     </aside>
   );
 };
