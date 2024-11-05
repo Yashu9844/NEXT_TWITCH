@@ -1,3 +1,5 @@
+"use client"
+
 import Hint from "@/components/hint";
 import { Button } from "@/components/ui/button";
 import { useCreatorSideBar } from "@/store/use-creator-sidebar";
@@ -9,7 +11,7 @@ const Toggle = () => {
   return (
     <div>
     {collapsed && (
-            <div className="w-full hidden  lg:flex items-center  justify-center pt-4 mb-4">
+        <div className="hidden lg:flex w-full items-center justify-center pt-4 mb-4">
                 <Hint side="right" label={label} asChild >
                     <Button
                     variant={"ghost"}
@@ -22,7 +24,7 @@ const Toggle = () => {
             </div>
         )}
         {!collapsed && (
-            <div className="w-full hidden lg:flex items-center pl-6 p-3 mb-4">
+             <div className=" hidden lg:flex p-3 pl-6 mb-2 items-center w-full justify-between">
                 <p className="font-semibold text-primary">
                     Dashboard
                 </p>
@@ -30,7 +32,7 @@ const Toggle = () => {
                     <Button
                     variant={"ghost"}
                     onClick={onCollapse}
-                    className="h-auto p-2 ml-[4.5vw]"
+                    className="h-auto ml-auto p-2"
                     >
                         <ArrowLeftFromLine className="h-5 w-5" />
                     </Button>
