@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+ 
 }
 
 datasource db {
@@ -21,11 +22,12 @@ model User {
   externalUserId String @unique
  bio   String? @db.Text
  following      Follow[] @relation(name: "Following")
-  followedBy     Follow[] @relation(name: "FollowedBy")
+followedBy     Follow[] @relation(name: "FollowedBy")
 
  blocking Block[] @relation(name: "Blocking")
   blockedBy     Block[] @relation(name: "BlockedBy")
 
+stream Stream?
 
 createdAt DateTime @default(now())
 updatedAt DateTime  @updatedAt
@@ -63,3 +65,31 @@ blocked User @relation(name:"BlockedBy",fields: [blockedId] , references: [id],o
 }
 
  
+model Stream{
+
+  id String @id @default(uuid())
+  name String @db.Text
+  thumbnailUrl String? @db.Text
+
+
+ ingressId String? @unique
+ serverUrl String? @db.Text
+ streamKey String? @db.Text
+
+ isLive Boolean @default(false)
+ isChatEnabled Boolean @default(true)
+ isChatDelayed Boolean @default(false)
+ isChatFollowersOnly Boolean @default(false)
+
+ userId String @unique
+ user User @relation(fields: [userId] , references: [id], onDelete: Cascade)
+
+
+createdAt DateTime @default(now())
+updatedAt DateTime  @updatedAt
+
+@@index([userId])
+@@index([ingressId])
+// @@fulltext([name])
+
+}
