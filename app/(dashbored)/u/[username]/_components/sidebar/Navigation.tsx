@@ -2,7 +2,7 @@
 import { useUser } from "@clerk/nextjs";
 import { Fullscreen, KeyRound, MessageSquare, Users } from "lucide-react";
 import { usePathname } from "next/navigation";
-import NavItem from "./NavItem";
+import NavItem, { NavItemSkeleton } from "./NavItem";
 
 const Navigation = () => {
 
@@ -32,6 +32,19 @@ const Navigation = () => {
             icon:Users
         },
     ]
+
+
+
+ if(!user?.username){
+    return (
+        <ul className="space-y-2">
+           {
+            [...Array(4)].map((_,i)=>
+            <NavItemSkeleton key={i} />)
+           }
+        </ul>
+    )
+ }
 
 
   return (
