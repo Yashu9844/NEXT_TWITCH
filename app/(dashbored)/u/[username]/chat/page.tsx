@@ -1,5 +1,6 @@
 import { getSelf } from "@/lib/auth-service";
 import { getUserStreamIdByuserId } from "@/lib/stream-service";
+import ToggleBut from "./_components/ToggleBut";
 
 const ChatPage = async () => {
  
@@ -10,6 +11,15 @@ const ChatPage = async () => {
     <div className="p-6">
       <div className="mb-4">
        <h1 className="text-2xl font-bold"  >Chat Setting</h1>
+      </div>
+      <div className="space-y-4">
+        <ToggleBut
+        feild="isChatEnabled"
+        value={Boolean(stream?.isChatEnabled)}
+        label="Enable Chat"
+        />
+        
+        
       </div>
     </div>
   );
