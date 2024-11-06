@@ -1,3 +1,5 @@
+"use client"
+
 import { Switch } from "@/components/ui/switch";
 
 type FieldType = "isChatEnabled" | "isChatDelayed" | "isChatFollowersOnly"
