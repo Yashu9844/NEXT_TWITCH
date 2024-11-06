@@ -3,7 +3,7 @@
 
 import { getSelf } from "@/lib/auth-service"
 import { db } from "@/lib/db"
-import { getUserStreamIdByuserId } from "@/lib/stream-service"
+
 
 
 import {Stream} from '@prisma/client'
@@ -26,14 +26,14 @@ export const  updateStream = async (values:Partial<Stream>)=>{
         }
        const validData ={
         name: values.name ,
-    isChatEnabled: values.isChatEnabled ,
-    isChatDelayed: values.isChatDelayed ,
-    isChatFollowersOnly: values.isChatFollowersOnly ,
+        isChatEnabled: values.isChatEnabled ,
+        isChatDelayed: values.isChatDelayed ,
+        isChatFollowersOnly: values.isChatFollowersOnly ,
        }
 
             const stream = await db.stream.update({
                 where:{
-                    userId: selfStream.id
+                    userId: selfStream.userId
                 },
                 data:{
                     ...validData
@@ -47,6 +47,6 @@ export const  updateStream = async (values:Partial<Stream>)=>{
   return stream
         
     } catch (error) {
-        throw new Error("internal server error: " )
+        throw new Error("internal server error: "+error )
     }
 }
