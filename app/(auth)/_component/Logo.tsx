@@ -1,6 +1,9 @@
+"use client"
+
 import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const font = Poppins({
     subsets: ['latin'],
@@ -8,6 +11,8 @@ const font = Poppins({
 });
 
 export const Logoo = () => {
+
+    const pathname = usePathname()
     return (
         <Link href={"/"}>
             <div className="items-center gap-2 p-3 lg:p-5  flex">
@@ -23,7 +28,7 @@ export const Logoo = () => {
                         Twitch
                     </h1>
                     <p className={`${font.className} text-sm font-light text-gray-500`}>
-                     Dashbored
+                        {pathname === "/" ? "Buddy" : "Dashbored"}
                     </p>
                 </div>
             </div>
