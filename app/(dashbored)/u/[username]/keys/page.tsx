@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import UrlComp from "./_components/UrlComp";
 import { getSelf } from "@/lib/auth-service";
 import { getUserStreamIdByuserId } from "@/lib/stream-service";
+import KeyCard from "./_components/KeyCard";
 
 const Page = async () => {
  
@@ -19,6 +20,7 @@ const Page = async () => {
       </div>
       <div className="space-y-4">
         <UrlComp value = {stream.serverUrl} />
+        <KeyCard  value = {stream.streamKey} />
       </div>
 
     </div>

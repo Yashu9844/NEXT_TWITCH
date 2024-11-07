@@ -18,7 +18,7 @@ const UrlComp = ({value}:UrlCompProps) => {
                  value = {value || ""}
                  disabled
                 />
-                <CopyButton value={value} />
+                <CopyButton value={value || " "} />
             </div>
         </div>
       </div>
