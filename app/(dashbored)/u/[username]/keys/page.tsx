@@ -3,6 +3,7 @@ import UrlComp from "./_components/UrlComp";
 import { getSelf } from "@/lib/auth-service";
 import { getUserStreamIdByuserId } from "@/lib/stream-service";
 import KeyCard from "./_components/KeyCard";
+import GenerateComponent from "./_components/GenerateComponent";
 
 const Page = async () => {
  
@@ -16,7 +17,7 @@ const Page = async () => {
     <div className="p-6" >
       <div className="flex items-center justify-between mb-4">
         <p className="font-bold text-2xl" >Keys & URLs</p>
-        <Button variant={"primary"} >Generate</Button>
+        <GenerateComponent/>
       </div>
       <div className="space-y-4">
         <UrlComp value = {stream.serverUrl} />
