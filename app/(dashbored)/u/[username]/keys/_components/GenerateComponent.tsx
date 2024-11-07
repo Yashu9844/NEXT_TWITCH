@@ -3,6 +3,8 @@
 import { Alert, AlertTitle ,AlertDescription} from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {Dialog , DialogTrigger , DialogContent , DialogHeader , DialogClose, DialogTitle, DialogDescription} from "@/components/ui/dialog"
+import { Select, SelectContent, SelectGroup, SelectLabel, SelectTrigger, SelectValue ,  SelectItem,} from "@/components/ui/select";
+
 import { AlertTriangle } from "lucide-react";
 
 
@@ -18,6 +20,21 @@ const GenerateComponent = () => {
             <DialogTitle>Generate Connection</DialogTitle>
            
         </DialogHeader>
+        <Select>
+            <SelectTrigger  className="w-full" >
+                <SelectValue placeholder="Ingress Type" />
+            </SelectTrigger>
+            <SelectContent>
+         
+            <SelectGroup>
+               
+                <SelectItem value="RTMP" >RTMP</SelectItem>
+                <SelectItem value="WHIP" >WHIP</SelectItem>
+            </SelectGroup>
+
+               
+            </SelectContent>
+        </Select>
         <Alert>
             <AlertTriangle className="h-4 w-4" />
             <AlertTitle>!Warning</AlertTitle>
