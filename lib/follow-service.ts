@@ -152,13 +152,16 @@ export const getFollowedUsers = async () => {
               }
           },
           include: {
-              following: true,
+              following: {
+                include:{
+                    stream:true
+                }
+              },
           },
       });
 
       return followedUsers;
   } catch (error: any) {
-      console.error("Error in getFollowedUsers:", error);
-      throw new Error(`Something went wrong: ${error.message}`);
+      return []
   }
 };

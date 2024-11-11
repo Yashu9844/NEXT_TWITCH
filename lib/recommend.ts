@@ -47,6 +47,9 @@ if(userId){
     
     ]
         },
+        include:{
+            stream:true
+        },
         orderBy:{
             createdAt:"desc"
         }
@@ -54,6 +57,9 @@ if(userId){
 
 }else{
      users = await db.user.findMany({
+        include:{
+            stream:true
+        },
         orderBy:{
             createdAt:"desc"
         }
