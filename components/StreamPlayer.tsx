@@ -42,6 +42,7 @@ const StreamPlayer = ({user,stream,isFollowing} : StreamPlayerProps) => {
         hostIdentity = {user.id}
         
         />
+        
       </div>
     </LiveKitRoom>
   );
