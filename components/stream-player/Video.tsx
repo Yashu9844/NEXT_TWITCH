@@ -4,6 +4,7 @@ import { useConnectionState, useRemoteParticipant, useTracks } from "@livekit/co
 import { ConnectionState, Track } from "livekit-client";
 import OfflineVideo from "./OfflineVideo";
 import LoadingVideo from "./LoadingVideo";
+import LiveVideo from "./LiveVideo";
 
 interface VideoProps{
     hostName :string;
@@ -25,7 +26,7 @@ const Video = ({hostName,hostIdentity}:VideoProps) => {
  }else if(!Participant || tracks.length === 0){
     content =<LoadingVideo label={connectionState} />
  }else{
-    content = <p>Live video</p>
+    content = <LiveVideo participant={Participant} />
  }
 
   return (
