@@ -22,20 +22,30 @@ try {
 
     if(!host){
         throw new Error('Host not found')
-
         
     }
     const isBolcked = await isBlockedByUser(host.id)
-
+    const isHost = self.id === host.id
         if(isBolcked) {
             throw new Error('Host is blocked')
         }
         const token = new AccessToken(
             process.env.LIVEKIT_API_KEY!,
             process.env.LIVEKIT_SECRET_KEY!,
+            {
+                identity: isHost ? `host-${self.id}` : self.id,
+                name:self.username
+            }
             
         )
 
+        token.addGrant({
+            room:host.id,
+            roomJoin:true,
+            canPublish:false,
+            canPublishData:true
+        })
 
 
+return await Promise.resolve(token.toJwt())
 }
