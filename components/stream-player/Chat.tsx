@@ -9,6 +9,7 @@ import ChatHeader from "./ChatHeader";
 import ChatForm from "./ChatForm";
 import ChatInfo from "./ChatInfo";
 import ChatList from "./ChatList";
+import ChatCommunity from "./ChatCommunity";
 
 interface ChatProps{
     hostName:string;
@@ -89,7 +90,12 @@ const onChange = (value:string)=>{
      )}
 
      {varient === ChatVarient.COMMUNITY &&(
-        <p>Community Mode</p>
+        <ChatCommunity
+        viewerName={viewerName}
+        isHidden={isHidden}
+        hostName ={hostName}
+        
+        />
      )}
       
     </div>
