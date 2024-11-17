@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { useStartAudio } from "@livekit/components-react";
 import { useState } from "react";
 import { isBlockedByUser } from "@/lib/block-service";
+import { Skeleton } from "../ui/skeleton";
 
 interface ChatFormProps{
     isHidden: boolean;
@@ -65,7 +66,7 @@ const ChatForm = ({
             <Input
             placeholder="Send a message..."
             value={value}
-            onChange={()=>{}}
+            onChange={(e)=>onChange(e.target.value)}
             disabled={isDisabled}
             className={cn("border-white/10",
                 isFollowersOnly && "rounded-t-none border-t-0"
@@ -88,3 +89,16 @@ const ChatForm = ({
 };
 
 export default ChatForm;
+
+export const ChatFormSkeleton =()=>
+{
+    return(
+        <div className="flex flex-col gap-y-4 p-3 items-center">
+            <Skeleton className="w-full h-10" />
+            <div className="flex flex-col items-center ml-auto gap-x-2">
+                <Skeleton className="h-7 w-7" />
+                <Skeleton className="h-7 w-12" />
+            </div>
+        </div>
+    )
+}
