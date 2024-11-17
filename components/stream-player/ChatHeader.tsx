@@ -1,8 +1,12 @@
 import { Skeleton } from "../ui/skeleton";
+import ChatToggle from "./ChatToggle";
 
 const ChatHeader = () => {
   return (
     <div className="p-3 border-b realtive">
+  <div className="absolute  hidden lg:block  ">
+  <ChatToggle/>
+  </div>
       <div className="font-semibold text-primary text-center">
     Stream Chat
       </div>

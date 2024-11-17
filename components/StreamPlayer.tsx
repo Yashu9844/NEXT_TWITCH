@@ -7,6 +7,7 @@ import Video from "./stream-player/Video";
 import { useChatSideBar } from "@/store/use-chat-sidebar";
 import { cn } from "@/lib/utils";
 import Chat from "./stream-player/Chat";
+import ChatToggle from "./stream-player/ChatToggle";
 
 interface StreamPlayerProps{
     user:User & {
@@ -35,6 +36,14 @@ const StreamPlayer = ({user,stream,isFollowing} : StreamPlayerProps) => {
  }
 
   return (
+   <>
+{collapsed && (
+  
+  <div className="hidden lg:block fixed top-[90px] right-4 z-50">
+    <ChatToggle/>
+  </div>
+  )}
+
     <LiveKitRoom 
     token={token}
     serverUrl={process.env.NEXT_PUBLIC_WS_LIVEKIT_URL}
@@ -51,7 +60,12 @@ const StreamPlayer = ({user,stream,isFollowing} : StreamPlayerProps) => {
         />
         
       </div>
-      <div className={cn("col-span-1" , collapsed && "hidden")}>
+
+      {/* // these is the main reason its working here */}
+      <div className={cn("col-span-1" , collapsed && "hidden")}> 
+
+
+
         <Chat
         viewerName = {name}
         hostName = {user.username}
@@ -62,7 +76,7 @@ const StreamPlayer = ({user,stream,isFollowing} : StreamPlayerProps) => {
         isChatFollowersOnly = {stream.isChatFollowersOnly}
         />
       </div>
-    </LiveKitRoom>
+    </LiveKitRoom></>
   );
 };
 
