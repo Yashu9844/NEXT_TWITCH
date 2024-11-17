@@ -5,6 +5,7 @@ import { useStartAudio } from "@livekit/components-react";
 import { useState } from "react";
 import { isBlockedByUser } from "@/lib/block-service";
 import { Skeleton } from "../ui/skeleton";
+import ChatInfo from "./ChatInfo";
 
 interface ChatFormProps{
     isHidden: boolean;
@@ -63,6 +64,10 @@ const ChatForm = ({
     className="flex flex-col items-center gap-y-4 p-3"
     >
         <div className="w-full">
+            <ChatInfo
+            isDelayed={isDelayed}
+            isFollowersOnly={isFollowersOnly}
+            />
             <Input
             placeholder="Send a message..."
             value={value}

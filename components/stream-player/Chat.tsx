@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import ChatHeader from "./ChatHeader";
 import ChatForm from "./ChatForm";
+import ChatInfo from "./ChatInfo";
 
 interface ChatProps{
     hostName:string;
@@ -64,6 +65,7 @@ const onChange = (value:string)=>{
 
   return (
     <div className="flex flex-col bg-background border-l border-b pt-0 h-[calc(100vh-80px)]">
+     
      <ChatHeader/>
      {varient === ChatVarient.CHAT &&(
       <ChatForm
