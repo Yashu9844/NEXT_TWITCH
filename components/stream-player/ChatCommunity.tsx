@@ -7,6 +7,9 @@ import { Input } from "../ui/input";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import CommunityItem from "./CommunityItem";
 import { LocalParticipant, RemoteParticipant } from "livekit-client";
+import { ChatHeaderSkeleton } from "./ChatHeader";
+import { ChatListSkeleton } from "./ChatList";
+import { ChatFormSkeleton } from "./ChatForm";
 
 interface ChatCommunityProps {
   isHidden: boolean;
@@ -65,8 +68,7 @@ const ChatCommunity = ({
     const searchValue =
       typeof debouncedValue === "string" ? debouncedValue.toLowerCase() : "";
 
-    console.log("Search Input Value:", value);
-    console.log("Debounced Value:", debouncedValue);
+
 
     return deduped.filter((participant) => {
       return participant.name?.toLowerCase().includes(searchValue);
@@ -99,3 +101,14 @@ const ChatCommunity = ({
 };
 
 export default ChatCommunity;
+
+
+export const ChatSkeleton =()=>{
+  return(
+    <div className="flex flex-col border-l border-b pt-0 h-[calc(100vj=h-80px)] border-2">
+      <ChatHeaderSkeleton/>
+      <ChatListSkeleton/>
+      <ChatFormSkeleton/>
+    </div>
+  )
+}

@@ -5,6 +5,7 @@ import { ConnectionState, Track } from "livekit-client";
 import OfflineVideo from "./OfflineVideo";
 import LoadingVideo from "./LoadingVideo";
 import LiveVideo from "./LiveVideo";
+import { Skeleton } from "../ui/skeleton";
 
 interface VideoProps{
     hostName :string;
@@ -37,3 +38,11 @@ const Video = ({hostName,hostIdentity}:VideoProps) => {
 };
 
 export default Video;
+
+export const VideoSkeleton=()=>{
+  return(
+    <div className="aspect-video border-x border-background">
+      <Skeleton  className="h-full w-full rounded-none"/>
+    </div>
+  )
+}
