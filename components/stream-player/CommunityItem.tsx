@@ -34,7 +34,7 @@ if(!participantName || !isHost || isSelf) return ;
 
  startTransiton(()=>{
     onBlock(participantIdentity)
-    .then(()=>toast.success(`Blockes ${participantName}`))
+    .then(()=>toast.success(`Blocked ${participantName}`))
     .catch(()=>toast.error("Failed to block"))
  })
 
