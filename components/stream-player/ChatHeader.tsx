@@ -1,16 +1,25 @@
 import { Skeleton } from "../ui/skeleton";
 import ChatToggle from "./ChatToggle";
+import VarientToggle from "./VarientToggle";
 
 const ChatHeader = () => {
   return (
-    <div className="p-3 border-b realtive">
-  <div className="absolute  hidden lg:block  ">
-  <ChatToggle/>
-  </div>
-      <div className="font-semibold text-primary text-center">
-    Stream Chat
-      </div>
+<div className="p-3 border-b relative">
+    {/* ChatToggle */}
+    <div className="absolute hidden lg:block bottom-[13%] left-3">
+      <ChatToggle />
     </div>
+
+    {/* Stream Chat Title */}
+    <div className="font-semibold text-primary text-center mt-1">
+      Stream Chat
+    </div>
+
+    {/* VarientToggle */}
+    <div className="absolute right-3 top-[2.5vw] lg:top-[1vw]">
+      <VarientToggle />
+    </div>
+  </div>
   );
 };
 

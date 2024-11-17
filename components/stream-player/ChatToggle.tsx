@@ -13,13 +13,13 @@ const ChatToggle = () => {
     const Icon = collapsed ? ArrowLeftFromLine : ArrowRightFromLine
     const label = collapsed? "Expand" : "Collapse";
     const onToggle = () => {
-        console.log("Before Toggle: ", collapsed);
+  
         if (collapsed) {
             onExpand();
         } else {
             onCollapse();
         }
-        console.log("After Toggle: ", collapsed);
+        
     };
     
 
