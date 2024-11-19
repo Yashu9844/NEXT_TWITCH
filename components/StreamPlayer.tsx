@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import Chat from "./stream-player/Chat";
 import ChatToggle from "./stream-player/ChatToggle";
 import { ChatSkeleton } from "./stream-player/ChatCommunity";
+import Header from "./stream-player/Header";
 
 interface StreamPlayerProps{
     user:User & {
@@ -55,6 +56,15 @@ const StreamPlayer = ({user,stream,isFollowing} : StreamPlayerProps) => {
         <Video
         hostName = {user.username}
         hostIdentity = {user.id}
+        
+        />
+        <Header
+        hostName = {user.username}
+        hostIdentity = {user.id}
+        viewerIdentity = {identity}
+        imageUrl = {user.imageUrl}
+        isFollowing = {isFollowing}
+        name = {stream.name}
         
         />
         
