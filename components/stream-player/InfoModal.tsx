@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useTransition } from "react";
+import { ElementRef, useRef, useState, useTransition } from "react";
 import { Button } from "../ui/button";
 import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { Input } from "../ui/input";
@@ -18,7 +18,7 @@ const InfoModal = ({
     intialName,
     intialThumbNail 
 }:InfoModalProps) => {
- 
+  const  closeRef = useRef<ElementRef<"button">>(null)
     const [name,setName] = useState(intialName)
     const [isPending, startTransition] = useTransition()
   const onChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -29,7 +29,11 @@ const InfoModal = ({
   
   startTransition(()=>{
     updateStream({name:name})
-    .then(()=>toast.success("Stream successfully updated"))
+    .then(()=>{
+        toast.success("Stream successfully updated")
+           closeRef?.current?.click() 
+    }                 
+)
     .catch(()=>toast.error("Failed to update stream"))
   })
 
@@ -58,11 +62,12 @@ const InfoModal = ({
             placeholder="Stream name"
             value={name}
             onChange={onChange}
+            disabled={isPending}
             />
         
         </div>
         <div className="flex justify-between mt-14">
-                <DialogClose asChild>
+                <DialogClose ref={closeRef} asChild>
                    <Button
                    variant={"ghost"}
                    size={"sm"}
