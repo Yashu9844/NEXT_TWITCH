@@ -3,6 +3,7 @@
 import { Pencil } from "lucide-react";
 import { Separator } from "../ui/separator";
 import Image from "next/image";
+import InfoModal from "./InfoModal";
 
 interface InfoCardProps{
     hostIdentity:string;
@@ -35,6 +36,7 @@ if(!isHost){return null}
                 <h2 className="text-sm lg:text-lg font-semibold capitalize">Edit your stream info</h2>
                 <p className="capitalize text-muted-foreground text-xs lg:text-sm">Maximize your visibility</p>
             </div>
+            <InfoModal intialName={name} intialThumbNail={thumbnailUrl} />
         </div>
         <Separator/>
         <div className="p-4 lg:p-6 space-y-4">
