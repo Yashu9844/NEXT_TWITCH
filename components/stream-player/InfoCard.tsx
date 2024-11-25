@@ -52,6 +52,7 @@ if(!isHost){return null}
                         fill
                         src={thumbnailUrl}
                         alt={name}
+                        className="object-cover"
                         />
                     </div>
                 )}</p>
