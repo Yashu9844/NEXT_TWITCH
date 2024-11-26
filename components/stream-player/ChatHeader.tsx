@@ -12,7 +12,7 @@ const ChatHeader = () => {
 
     {/* Stream Chat Title */}
     <div className="font-semibold text-primary text-center mt-1">
-      Stream Chat
+      Stream's Chat
     </div>
 
     {/* VarientToggle */}
