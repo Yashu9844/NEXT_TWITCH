@@ -5,7 +5,7 @@ import { db } from "@/lib/db";
 import { User } from "@prisma/client"
 import { revalidatePath } from "next/cache";
 
-export const uodateUser = async(value:Partial<User>)=>{
+export const updateUser = async(value:Partial<User>)=>{
 
     const self = await getSelf();
     if(!self){
