@@ -1,5 +1,6 @@
 "use client"
 
+import BioModal from "./BioModal";
 import VErifiedCheckMark from "./VErifiedCheckMark";
 
 interface AboutCardProps{
@@ -34,7 +35,7 @@ const followedBylabel = followedByCount === 1 ? 'follower' : 'followers'
             {
                 isHost && (
                     <div className="cursor-pointer hover:underline">
-                    <p className="text-sm font-bold text-muted-foreground" >Edit</p>
+                    <p className="text-sm font-bold text-muted-foreground" ><BioModal/></p>
                 </div>
                 )
             }
