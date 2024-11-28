@@ -11,10 +11,14 @@ import ChatToggle from "./stream-player/ChatToggle";
 import { ChatSkeleton } from "./stream-player/ChatCommunity";
 import Header, { HeaderSkeleton } from "./stream-player/Header";
 import InfoCard from "./stream-player/InfoCard";
+import AboutCard from "./stream-player/AboutCard";
 
 interface StreamPlayerProps{
     user:User & {
-        stream:Stream | null
+        stream:Stream | null,
+        _count:{
+          followedBy:number
+        }
     },
     stream:Stream,
     isFollowing:boolean
@@ -74,6 +78,14 @@ const StreamPlayer = ({user,stream,isFollowing} : StreamPlayerProps) => {
         name={stream.name}
         thumbnailUrl={stream.thumbnailUrl}
         
+        
+        />
+        <AboutCard
+        hostIdentity={user.id}
+        hostName={user.username}
+        bio={user.bio}
+        viewerIdentity={identity}
+        followedByCount={user._count.followedBy}
         
         />
         
