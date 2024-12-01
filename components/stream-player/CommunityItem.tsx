@@ -26,7 +26,7 @@ const CommunityItem = ({
 }:CommunityItemProps) => {
     const color = stringToColor(participantName || "")
     const isSelf =participantName === viewerName
-    const isHost = participantName === hostName
+    const isHost = viewerName === hostName
 const [isPending , startTransiton] = useTransition()
 
   const handleBlock = ()=>{
@@ -47,17 +47,18 @@ if(!participantName || !isHost || isSelf) return ;
     <p style={{color:color}} >
     {participantName}
     </p>
-    {isHost && !isSelf  && (
-        <Hint label="Block" >
-            <Button
-            variant={"ghost"}
-            disabled={isPending} className="w-auto h-auto p-1 opacity-0 group-hover:opacity-100 transition"
+    {isHost && !isSelf && (
+        <Hint label="Block">
+          <Button
+            variant="ghost"
+            disabled={isPending}
             onClick={handleBlock}
-            >
-                <MinusCircle className="h-4 w-4 text-muted-foreground"/>
-            </Button>
+            className="h-auto w-auto p-1 opacity-0 group-hover:opacity-100 transition"
+          >
+            <MinusCircle className="h-4 w-4 text-muted-foreground" />
+          </Button>
         </Hint>
-    )} 
+      )}
     </div>
   );
 };
