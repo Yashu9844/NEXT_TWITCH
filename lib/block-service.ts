@@ -30,7 +30,7 @@ const existingUSer = await db.block.findUnique({
 return !!existingUSer;
         
     } catch (error) {
-        throw new Error("Something went wrong")
+       return false
     }
 }
 
