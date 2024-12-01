@@ -55,7 +55,7 @@ return ""
     <div className="border border-white/10 rounded-t-md flex items-center p-2 text-muted-foreground
     gap-x-2 w-full bg-white/5
     ">
-      <Hint label={label} >
+      <Hint label={hint} >
         <Info className="h-4 w-4" />
       </Hint>
       <p className="text-xs font-semibold" >{label}</p>

@@ -19,6 +19,7 @@ const Following = ({data}:FollowProps) => {
     return null;
  }
 
+
   return (
     <div>
       {!collapsed && (

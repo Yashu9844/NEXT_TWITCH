@@ -38,6 +38,9 @@ export const blockUser= async(id:string)=>{
     try {
       
         const self = await getSelf()
+        if (self.id === id) {
+          throw new Error("You cannot block yourself");
+        }
 
         const  otherUser = await db.user.findUnique({
             where:{id}
