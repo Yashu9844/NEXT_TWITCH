@@ -33,17 +33,25 @@ export const getAllStreams = async ()=>{
                 }
             }
         }
-    },
-    include:{
+    },select:{
         user:true,
-    }
+        thumbnailUrl:true,
+        name:true,
+        isLive:true,
+        id:true
+    },
+   
  })
 
 
  }else{
     streams = await db.stream.findMany({
-        include:{
+        select:{
             user:true,
+            thumbnailUrl:true,
+            name:true,
+            isLive:true,
+            id:true
         },
         orderBy:[
             {
@@ -56,5 +64,5 @@ export const getAllStreams = async ()=>{
     })
  }
 
-
+return streams
 }
