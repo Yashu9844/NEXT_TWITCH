@@ -1,6 +1,7 @@
 import { getSearch } from "@/lib/searchService";
-import { result } from "lodash";
-import ResultCard from "./ResultCard";
+
+import ResultCard, { ResultCardSkeleton } from "./ResultCard";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ResultProps{
     term?:string;
@@ -21,8 +22,8 @@ const Results =async ({term } : ResultProps) => {
         </div>
       )}
       <div className="flex flex-col gap-y-4">
-        {data.map((result)=>(
-            <ResultCard data={result} key={result.id} />
+        {data.map((results)=>(
+            <ResultCard data={results} key={results.id} />
         ))}
       </div>
     </div>
@@ -32,8 +33,15 @@ const Results =async ({term } : ResultProps) => {
 export default Results;
 
 
-export const ResultsSkeleton = ()=>{
+export const ResultsSkeleton = () => {
     return (
-        <div className=""></div>
-    )
-}
+      <div>
+        <Skeleton className="h-8 w-[290px] mb-4" />
+        <div className="flex flex-col gap-y-4">
+          {[...Array(4)].map((_, i) => (
+            <ResultCardSkeleton key={i} />
+          ))}
+        </div>
+      </div>
+    );
+  };

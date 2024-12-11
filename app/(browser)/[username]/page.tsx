@@ -13,6 +13,10 @@ interface UserProps{
 }
 
 
+
+
+
+
 const Page =async ({params} : UserProps) => {
 
   const user = await getUserByUsername(params.username);
