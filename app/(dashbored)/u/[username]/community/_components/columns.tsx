@@ -1,5 +1,6 @@
 "use client"
 
+import UserAvatar from "@/app/(browser)/_components/sidebar/UserAvatar"
 import { Button } from "@/components/ui/button"
 import { ColumnDef } from "@tanstack/react-table"
 
@@ -17,6 +18,15 @@ export const columns: ColumnDef<Blockedusers>[] = [
   {
     accessorKey: "username",
     header: "Username",
+    cell:({row})=>(
+        <div className="flex items-center gap-x-4">
+            <UserAvatar
+            username={row.original.username}
+            imageUrl={row.original.imageUrl}
+            />
+            <span>{row.original.username}</span>
+        </div>
+    )
   },
   {
     accessorKey: "createdAt",
