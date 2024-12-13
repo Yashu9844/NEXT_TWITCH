@@ -28,7 +28,7 @@ const Navigation = () => {
         },
         {
             label:"Community",
-            href:`/u/${user?.username}/cummunity`,
+            href:`/u/${user?.username}/community`,
             icon:Users
         },
     ]
