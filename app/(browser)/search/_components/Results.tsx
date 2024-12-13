@@ -18,7 +18,7 @@ const Results =async ({term } : ResultProps) => {
       </h2>
       {data.length === 0 && (
         <div>
-            <p className="text-muted-foreground text-sm">No results found</p>
+            <p className="text-muted-foreground text-sm">No result found</p>
         </div>
       )}
       <div className="flex flex-col gap-y-4">
