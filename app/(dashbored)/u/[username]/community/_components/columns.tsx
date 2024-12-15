@@ -23,7 +23,7 @@ export const columns: ColumnDef<Blockedusers>[] = [
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Username
+            Usernamee
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         ),
