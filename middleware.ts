@@ -12,6 +12,7 @@ export const config = {
     '/api/webhooks(.*)', // This line allows public access to the webhook route
      '/', // This line allows home page access to the webhook route
      '/api/uploadthing',
-     '/:username'
+     '/:username',
+     "/search"
   ],
 };
