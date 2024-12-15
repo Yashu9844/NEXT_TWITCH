@@ -4,6 +4,7 @@ import UserAvatar from "@/app/(browser)/_components/sidebar/UserAvatar"
 import { Button } from "@/components/ui/button"
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown } from "lucide-react"
+import UnblockButton from "./unblock-button"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -51,6 +52,6 @@ export const columns: ColumnDef<Blockedusers>[] = [
       },
   {
     id: "actions",
-   cell:()=><Button>Unblock</Button>
+   cell:({row})=><UnblockButton userId={row.original.userId}/>
   },
 ]
